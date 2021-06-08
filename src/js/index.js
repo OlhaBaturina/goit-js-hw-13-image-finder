@@ -1,7 +1,7 @@
 import '../css/style.css';
 import _ from 'lodash';
 import { errorAlert, warningAlert } from './errors';
-import fetchCountries from './apiService';
+import fetchImage from './apiService';
 import imageCard from '../templates/image-card.hbs';
 import galleryMarkup from '../templates/gallery.hbs';
 
@@ -10,9 +10,14 @@ const inputRef = document.querySelector('.search-form');
 
 inputRef.addEventListener('input', _.debounce(onSearch, 1000));
 
-// webformatURL - ссылка на маленькое изображение для списка карточек
-// largeImageURL - ссылка на большое изображение (смотри пункт 'дополнительно')
-// likes - количество лайков
-// views - количество просмотров
-// comments - количество комментариев
-// downloads - количество загрузок
+function onSearch(evt) {
+  evt.preventDefault();
+  const form = evt.target;
+  const searchQuery = form.value.trim();
+
+  console.log(searchQuery);
+
+  fetchImage(searchQuery)
+    .then(r => console.log(r))
+    .catch(console.error);
+}
