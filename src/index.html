@@ -11,9 +11,13 @@
   <body>
     <form class="search-form" id="search-form">
       <input type="text" name="query" autocomplete="off" placeholder="Search images..." />
+      <button class="search_button" type="submit">Search</button>
     </form>
+    <ul class="gallery js-render">
+      <!-- Список <li> с карточками изображений -->
+      <button class="load-more_button" type="button" data-action="load-more">Load more...</button>
+    </ul>
 
-    <div class="js-render"></div>
-    <script src="./js/index.js"></script>
+    <script src="./index.js"></script>
   </body>
 </html>
