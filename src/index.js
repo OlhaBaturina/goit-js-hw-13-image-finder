@@ -14,17 +14,25 @@ const newPixabayApi = new PixabayApiService();
 inputRef.addEventListener('submit', onSearch);
 loadMoreBtnRefRef.addEventListener('click', onLoadMore);
 
-let searchQuery = '';
-
 function onSearch(evt) {
   evt.preventDefault();
 
-  searchQuery = evt.currentTarget.elements.query.value;
-  console.log(searchQuery);
-
-  newPixabayApi.fetchImage(searchQuery);
+  newPixabayApi.query = evt.currentTarget.elements.query.value;
+  newPixabayApi.resetPage();
+  newPixabayApi.fetchImage().then(renderImageMarkup);
 }
 
 function onLoadMore() {
-  newPixabayApi.fetchImage(searchQuery);
+  newPixabayApi.fetchImage().then(renderImageMarkup);
 }
+
+function renderImageMarkup(images) {
+  renderRef.insertAdjacentHTML('beforeend', imageCard(images));
+}
+
+// webformatURL - ссылка на маленькое изображение для списка карточек
+// largeImageURL - ссылка на большое изображение (смотри пункт 'дополнительно')
+// likes - количество лайков
+// views - количество просмотров
+// comments - количество комментариев
+// downloads - количество загрузок
