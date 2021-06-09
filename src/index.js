@@ -9,39 +9,22 @@ const inputRef = document.querySelector('.search-form');
 const loadMoreBtnRefRef = document.querySelector('.load-more_button');
 const serchBtnRef = document.querySelector('.search_button');
 
-serchBtnRef.addEventListener('submit', onSearch);
-// loadMoreBtnRefRef.addEventListener('click', onLoadMore);
+const newPixabayApi = new PixabayApiService();
 
-const PixabayApi = new PixabayApiService();
-console.log(PixabayApi);
+inputRef.addEventListener('submit', onSearch);
+loadMoreBtnRefRef.addEventListener('click', onLoadMore);
+
+let searchQuery = '';
 
 function onSearch(evt) {
   evt.preventDefault();
 
-  if (evt.currentTarget.elements.query.value.trim() === '') {
-    console.log('Empty query string');
-  }
+  searchQuery = evt.currentTarget.elements.query.value;
+  console.log(searchQuery);
 
-  PixabayApi.query = evt.currentTarget.elements.query.value.trim();
-
-  loadMoreBtnRef.show();
-  loadMoreBtnRef.disable();
-
-  PixabayApi.resetPage();
-
-  PixabayApi.fetchArticles().then(items => {
-    console.log('Clear container');
-
-    if (items.length === 0) {
-      loadMoreBtnRef.hide();
-      console.log('Not found');
-    }
-
-    // loadMoreBtnRef.enable();
-  });
+  newPixabayApi.fetchImage(searchQuery);
 }
 
-function renderImage(images) {
-  const cardMarkup = imageCard(images);
-  renderRef.innerHTML = cardMarkup;
+function onLoadMore() {
+  newPixabayApi.fetchImage(searchQuery);
 }
