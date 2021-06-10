@@ -1,13 +1,3 @@
-// .custom-notification-alert-warning .notification {
-//   color: #1a0647;
-//   background-color: #f5bee9;
-//   border-color: #a173a1;
-// }
-
-// .custom-notification-alert-warning .ui-pnotify .notification .ui-pnotify-icon > span {
-//   border-color: #e8b0f0;
-// }
-
 body {
   max-width: 1200px;
   background-color: rgba(178, 115, 180, 0.085);
@@ -84,16 +74,13 @@ ul {
 }
 
 .image-thumb {
-  height: 240px;
   margin-bottom: 10px;
-  object-fit: cover;
-  overflow: hidden;
-
   img {
     display: block;
     margin: 0;
     background-size: contain;
-    // height: 250px;
+    object-fit: cover;
+    height: 250px;
   }
 }
 
@@ -101,7 +88,6 @@ ul {
   display: flex;
   justify-content: space-around;
   color: rgb(60, 20, 61);
-
   &-item {
     display: flex;
     flex-direction: column;
