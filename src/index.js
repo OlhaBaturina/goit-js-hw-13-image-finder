@@ -2,17 +2,24 @@ import './sass/main.scss';
 import _ from 'lodash';
 import { errorAlert, warningAlert } from './js/notice';
 import PixabayApiService from './js/apiService';
+import LoadMoreBtn from './js/load-more-btn';
 import imageCard from './templates/image-card.hbs';
 
 const renderRef = document.querySelector('.js-render');
 const inputRef = document.querySelector('.search-form');
-const loadMoreBtnRefRef = document.querySelector('.load-more_button');
+// const loadMoreBtnRefRef = document.querySelector('.load-more_button');
 const serchBtnRef = document.querySelector('.search_button');
 
+const loadMoreBtn = new LoadMoreBtn({
+  selector: '[data-action="load-more"]',
+  hidden: true,
+});
 const newPixabayApi = new PixabayApiService();
 
+console.log(loadMoreBtn);
+
 inputRef.addEventListener('submit', onSearch);
-loadMoreBtnRefRef.addEventListener('click', onLoadMore);
+loadMoreBtn.refs.button.addEventListener('click', fetchingImages);
 
 function onSearch(evt) {
   evt.preventDefault();
@@ -20,11 +27,15 @@ function onSearch(evt) {
   newPixabayApi.query = evt.currentTarget.elements.query.value;
 
   newPixabayApi.resetPage();
-  newPixabayApi.fetchImage().then(renderImageMarkup);
+  fetchingImages();
 }
 
-function onLoadMore() {
-  newPixabayApi.fetchImage().then(renderImageMarkup);
+function fetchingImages() {
+  loadMoreBtn.disable();
+  newPixabayApi.fetchImage().then(image => {
+    renderImageMarkup(image);
+    loadMoreBtn.enable();
+  });
 }
 
 function renderImageMarkup(images) {
