@@ -19,13 +19,13 @@ export default class PixabayApiService {
         }
         throw new Error(warningAlert('Please enter a valid request'));
       })
-      .then(data => {
+      .then(({ hits }) => {
         this.page += 1;
-        if (data.hits.length === 0) {
+        if (hits.length === 0) {
           return warningAlert('Please enter a valid request');
         }
-        console.log(data.hits);
-        return data.hits;
+        console.log(hits);
+        return hits;
       });
   }
 
