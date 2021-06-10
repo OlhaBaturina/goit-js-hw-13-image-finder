@@ -8,9 +8,6 @@ import imageCard from './templates/image-card.hbs';
 
 const renderRef = document.querySelector('.js-render');
 const inputRef = document.querySelector('.search-form');
-// const inputFieldRef = document.querySelector('.input');
-
-// console.log(inputFieldRef);
 
 const loadMoreBtn = new LoadMoreBtn({
   selector: '[data-action="load-more"]',
