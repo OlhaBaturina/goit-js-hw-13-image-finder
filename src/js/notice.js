@@ -9,11 +9,3 @@ export function warningAlert(message) {
     delay: 5000,
   });
 }
-
-// export function errorAlert(message) {
-//   error({
-//     title: 'ERROR',
-//     text: message,
-//     delay: 2000,
-//   });
-// }

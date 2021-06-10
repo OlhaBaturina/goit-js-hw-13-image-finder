@@ -7,7 +7,6 @@ import imageCard from './templates/image-card.hbs';
 
 const renderRef = document.querySelector('.js-render');
 const inputRef = document.querySelector('.search-form');
-const serchBtnRef = document.querySelector('.search_button');
 
 const loadMoreBtn = new LoadMoreBtn({
   selector: '[data-action="load-more"]',
@@ -45,10 +44,3 @@ function renderImageMarkup(images) {
 function clearImagesMarkur() {
   renderRef.innerHTML = '';
 }
-
-// webformatURL - ссылка на маленькое изображение для списка карточек
-// largeImageURL - ссылка на большое изображение (смотри пункт 'дополнительно')
-// likes - количество лайков
-// views - количество просмотров
-// comments - количество комментариев
-// downloads - количество загрузок

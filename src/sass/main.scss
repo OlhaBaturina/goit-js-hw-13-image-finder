@@ -24,11 +24,14 @@ button {
   border-radius: 4px;
   font-size: 18px;
   font-weight: bold;
-
   &:hover,
   &:focus {
     background-color: rgba(178, 115, 180, 0.447);
     color: rgb(98, 34, 99);
+  }
+  &:disabled {
+    background-color: rgba(193, 149, 196, 0.211);
+    color: rgba(98, 34, 99, 0.708);
   }
 }
 
@@ -68,7 +71,6 @@ ul {
 
 .photo-card {
   display: inline-block;
-  // height: 300px;
   padding-bottom: 10px;
   margin-top: 30px;
   margin-left: 30px;
@@ -83,11 +85,13 @@ ul {
 .image-thumb {
   height: 240px;
   margin-bottom: 10px;
-  object-fit: contain;
+  object-fit: cover;
+  overflow: hidden;
+
   img {
     display: block;
-
     margin: 0;
+    background-size: contain;
   }
 }
 
