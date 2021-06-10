@@ -1,9 +1,8 @@
 const gallery = document.getElementById('gallery');
 
-const scroll = gallery.scrollIntoView({
-  behavior: 'smooth',
-  block: 'end',
-  inline: 'nearest',
-});
-
-export default scroll;
+export default function scroll() {
+  gallery.scrollIntoView({
+    behavior: 'smooth',
+    block: 'end',
+  });
+}

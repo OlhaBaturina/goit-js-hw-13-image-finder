@@ -8,14 +8,15 @@ import imageCard from './templates/image-card.hbs';
 
 const renderRef = document.querySelector('.js-render');
 const inputRef = document.querySelector('.search-form');
+// const inputFieldRef = document.querySelector('.input');
+
+// console.log(inputFieldRef);
 
 const loadMoreBtn = new LoadMoreBtn({
   selector: '[data-action="load-more"]',
   hidden: true,
 });
 const newPixabayApi = new PixabayApiService();
-
-console.log(loadMoreBtn);
 
 inputRef.addEventListener('submit', onSearch);
 loadMoreBtn.refs.button.addEventListener('click', fetchingImages);
@@ -35,12 +36,12 @@ function fetchingImages() {
   newPixabayApi.fetchImage().then(image => {
     renderImageMarkup(image);
     loadMoreBtn.enable();
-    scroll;
   });
 }
 
 function renderImageMarkup(images) {
   renderRef.insertAdjacentHTML('beforeend', imageCard(images));
+  scroll();
 }
 
 function clearImagesMarkur() {
