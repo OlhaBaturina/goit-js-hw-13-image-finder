@@ -12,17 +12,27 @@ body {
   margin: 50px;
 }
 
+button {
+  width: 100px;
+  height: auto;
+  padding: 15px;
+  background-color: rgb(178, 115, 180);
+  border: 1px solid rgb(93, 59, 94);
+  border-radius: 4px;
+}
 .is-hidden {
   display: none;
 }
 
-.input {
-  width: 300px;
-  height: 28px;
-  border: 4px double rgba(110, 95, 80, 0.695);
-  border-radius: 4px;
-  padding-left: 10px;
-  font-style: italic;
-  font-size: 14px;
-  color: rgb(110, 95, 80);
+.search-form {
+  .input {
+    width: 300px;
+    height: 28px;
+    border: 4px double rgba(110, 95, 80, 0.695);
+    border-radius: 4px;
+    padding-left: 10px;
+    font-style: italic;
+    font-size: 14px;
+    color: rgb(110, 95, 80);
+  }
 }
