@@ -2,6 +2,7 @@ import './sass/main.scss';
 import _ from 'lodash';
 import { errorAlert, warningAlert } from './js/notice';
 import PixabayApiService from './js/apiService';
+import scroll from './js/scrollIntoView';
 import LoadMoreBtn from './js/load-more-btn';
 import imageCard from './templates/image-card.hbs';
 
@@ -34,6 +35,7 @@ function fetchingImages() {
   newPixabayApi.fetchImage().then(image => {
     renderImageMarkup(image);
     loadMoreBtn.enable();
+    scroll;
   });
 }
 

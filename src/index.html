@@ -10,10 +10,16 @@
   </head>
   <body>
     <form class="search-form" id="search-form">
-      <input class ="input" type="text" name="query" autocomplete="off" placeholder="Search images..." />
+      <input
+        class="input"
+        type="text"
+        name="query"
+        autocomplete="off"
+        placeholder="Search images..."
+      />
       <button class="search_button" type="submit">Search</button>
     </form>
-    <ul class="gallery js-render">
+    <ul class="gallery js-render" id="gallery">
       <!-- Список <li> с карточками изображений -->
     </ul>
     <button class="load-more_button" type="button" data-action="load-more">
