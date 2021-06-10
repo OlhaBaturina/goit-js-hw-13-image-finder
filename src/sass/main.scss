@@ -20,19 +20,36 @@ button {
   border: 1px solid rgb(93, 59, 94);
   border-radius: 4px;
 }
+
+img {
+  display: block;
+}
+
 .is-hidden {
   display: none;
 }
 
-.search-form {
-  .input {
-    width: 300px;
-    height: 28px;
-    border: 4px double rgba(110, 95, 80, 0.695);
-    border-radius: 4px;
-    padding-left: 10px;
-    font-style: italic;
-    font-size: 14px;
-    color: rgb(110, 95, 80);
-  }
+.input {
+  width: 300px;
+  height: 28px;
+  border: 4px double rgba(110, 95, 80, 0.695);
+  border-radius: 4px;
+  padding-left: 10px;
+  font-style: italic;
+  font-size: 14px;
+  color: rgb(110, 95, 80);
+}
+
+.gallery {
+  display: flex;
+}
+
+.photo-card {
+  display: inline-flex;
+
+  margin-right: 15px;
+}
+
+.stats {
+  display: flex;
 }
