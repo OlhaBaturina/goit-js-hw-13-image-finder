@@ -16,7 +16,7 @@ loadMoreBtnRefRef.addEventListener('click', onLoadMore);
 
 function onSearch(evt) {
   evt.preventDefault();
-
+  clearImagesMarkur();
   newPixabayApi.query = evt.currentTarget.elements.query.value;
   newPixabayApi.resetPage();
   newPixabayApi.fetchImage().then(renderImageMarkup);
@@ -28,6 +28,10 @@ function onLoadMore() {
 
 function renderImageMarkup(images) {
   renderRef.insertAdjacentHTML('beforeend', imageCard(images));
+}
+
+function clearImagesMarkur() {
+  renderRef.innerHTML = '';
 }
 
 // webformatURL - ссылка на маленькое изображение для списка карточек
