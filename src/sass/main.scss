@@ -68,6 +68,8 @@ ul {
 
 .photo-card {
   display: inline-block;
+  // height: 300px;
+  padding-bottom: 10px;
   margin-top: 30px;
   margin-left: 30px;
   background-color: rgba(178, 115, 180, 0.09);
@@ -79,14 +81,13 @@ ul {
 }
 
 .image-thumb {
-  // height: auto;
-
+  height: 240px;
+  margin-bottom: 10px;
+  object-fit: contain;
   img {
     display: block;
-    // height: auto;
-    // width: auto;
+
     margin: 0;
-    object-fit: cover;
   }
 }
 
