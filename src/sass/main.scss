@@ -1,17 +1,26 @@
+// .custom-notification-alert-warning .notification {
+//   color: #1a0647;
+//   background-color: #f5bee9;
+//   border-color: #a173a1;
+// }
+
+// .custom-notification-alert-warning .ui-pnotify .notification .ui-pnotify-icon > span {
+//   border-color: #e8b0f0;
+// }
+
 body {
   margin: 50px;
 }
 
 .input {
-   width: 300px;
-   height: 28px;
+  width: 300px;
+  height: 28px;
   border: 4px double rgba(110, 95, 80, 0.695);
-   border-radius: 4px;
+  border-radius: 4px;
   padding-left: 10px;
   font-style: italic;
   font-size: 14px;
   color: rgb(110, 95, 80);
-
 }
 
 .card {
@@ -55,13 +64,13 @@ body {
   font-size: 18px;
 }
 
-.country_list{
+.country_list {
   width: 600px;
   height: auto;
   padding: 20px;
   margin-top: 20px;
 
-  background-color: rgba(222, 184, 135, 0.050);
+  background-color: rgba(222, 184, 135, 0.05);
 
   border-radius: 4px;
 
@@ -71,10 +80,9 @@ body {
 
 .country_list:hover {
   box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2);
- 
 }
-.country_list-item{
+.country_list-item {
   font-size: 18px;
-  line-height: 1.8; 
+  line-height: 1.8;
   list-style: none;
 }

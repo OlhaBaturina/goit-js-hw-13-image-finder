@@ -1,5 +1,8 @@
 import { warningAlert } from './notice';
 
+const API_KEY = '21973303-2099b25a108053c1f3c237a34';
+const URL = 'https://pixabay.com/api';
+
 export default class PixabayApiService {
   constructor() {
     this.searchQuery = '';
@@ -7,10 +10,9 @@ export default class PixabayApiService {
   }
 
   fetchImage() {
-    const API_KEY = '21973303-2099b25a108053c1f3c237a34';
-    const URL = `https://pixabay.com/api/?q=${this.searchQuery}&page=${this.page}&per_page=12&image_type=photo&orientation=horizontal&key=${API_KEY}`;
-
-    return fetch(URL)
+    return fetch(
+      `${URL}/?q=${this.searchQuery}&page=${this.page}&per_page=12&image_type=photo&orientation=horizontal&key=${API_KEY}`,
+    )
       .then(response => {
         if (response.ok) {
           return response.json();
