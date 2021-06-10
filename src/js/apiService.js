@@ -1,3 +1,5 @@
+import { warningAlert } from './notice';
+
 export default class PixabayApiService {
   constructor() {
     this.searchQuery = '';
@@ -9,10 +11,17 @@ export default class PixabayApiService {
     const URL = `https://pixabay.com/api/?q=${this.searchQuery}&page=${this.page}&per_page=12&image_type=photo&orientation=horizontal&key=${API_KEY}`;
 
     return fetch(URL)
-      .then(response => response.json())
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        }
+        throw new Error(warningAlert('Please enter a valid request'));
+      })
       .then(data => {
         this.page += 1;
-        console.log(data);
+        if (data.hits.length === 0) {
+          return warningAlert('Please enter a valid request');
+        }
         console.log(data.hits);
         return data.hits;
       });

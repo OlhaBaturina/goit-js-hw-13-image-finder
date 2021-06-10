@@ -1,6 +1,6 @@
 import './sass/main.scss';
 import _ from 'lodash';
-import { errorAlert, warningAlert } from './js/errors';
+import { errorAlert, warningAlert } from './js/notice';
 import PixabayApiService from './js/apiService';
 import imageCard from './templates/image-card.hbs';
 
@@ -18,6 +18,7 @@ function onSearch(evt) {
   evt.preventDefault();
   clearImagesMarkur();
   newPixabayApi.query = evt.currentTarget.elements.query.value;
+
   newPixabayApi.resetPage();
   newPixabayApi.fetchImage().then(renderImageMarkup);
 }
