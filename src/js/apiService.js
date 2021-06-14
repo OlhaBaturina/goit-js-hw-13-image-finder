@@ -22,7 +22,7 @@ export default class PixabayApiService {
       .then(({ hits }) => {
         this.page += 1;
         if (hits.length === 0) {
-          return warningAlert('Please enter a valid request');
+          return warningAlert('No more pictures for your request');
         }
         console.log(hits);
         return hits;
