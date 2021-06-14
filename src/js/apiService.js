@@ -24,6 +24,7 @@ export default class PixabayApiService {
         if (hits.length === 0) {
           return warningAlert('No more pictures for your request');
         }
+
         console.log(hits);
         return hits;
       });

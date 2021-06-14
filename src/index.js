@@ -8,6 +8,7 @@ import imageCard from './templates/image-card.hbs';
 
 const renderRef = document.querySelector('.js-render');
 const inputRef = document.querySelector('.search-form');
+const thumbRef = document.querySelector('.load-more_thumb');
 
 const loadMoreBtn = new LoadMoreBtn({
   selector: '[data-action="load-more"]',
@@ -33,6 +34,11 @@ function fetchingImages() {
   newPixabayApi.fetchImage().then(image => {
     renderImageMarkup(image);
     loadMoreBtn.enable();
+
+    if (image.length < 12) {
+      loadMoreBtn.hide();
+      thumbRef.textContent = 'No more pictures for your request 😔 ';
+    }
   });
 }
 
